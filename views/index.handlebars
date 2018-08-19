@@ -1,0 +1,29 @@
+<div class='container'>
+  <div class='row'>
+    <div class='col-xs-12 text-center' id="burger-header">
+      <img src="../assets/img/burger.png">
+      <h1>Burger
+        <i class="fas fa-heart"></i> Lovers</h1>
+    </div>
+    <div class='col-xs-6 text-center' class='burger-list'>
+      <div class='row'>
+        {{#each data}} {{#unless this.devoured}}
+
+        <div class='col-xs-9 text-center' class='burger-box'>
+          <p>{{this.id}} : {{this.burger_name}}</p>
+        </div>
+        <div class='col-xs-3 text-center'>
+          <form method='POST' action='/burger/update?_method=PUT' class='button-size'>
+            <input type='hidden' name='burger_id' type='text' value={{this.id}}>
+            <br>
+            <button type='submit' class='btn btn-default'>
+              Burger Eating Time
+            </button>
+          </form>
+        </div>
+        {{/unless}} {{/each}}
+      </div>{{!--  end row --}}
+    </div>
+  </div>{{!--  end row --}}
+</div>{{!--  end container --}}
+
